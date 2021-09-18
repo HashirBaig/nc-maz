@@ -1,0 +1,52 @@
+.menu-bar-container{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    z-index: 10;
+}
+.menu-bar-logo{
+    display: block;
+    width: 9.0em;
+    height: 4.0em;
+}
+.menu-bar-container-col-1{
+    margin-top: 0.8em;
+    margin-left: 5.0em;
+}
+.menu-bar-container-col-2{
+    display: flex;
+    margin-top: 2.0em;
+    margin-left: 4.2em;
+}
+.menu-bar-container-col-3{
+    display: flex;
+    margin-top: 2.0em;
+    margin-left: 15.0em;
+}
+.menu-bar-container-col-2 > div, .menu-bar-container-col-3  > div{
+    padding-left: 2.0em;
+}
+.menu-bar-container-col-2-sub-col-1, .menu-bar-container-col-2-sub-col-2{
+    display: flex;
+}
+.menu-bar-container-col-2-sub-col-1 > div, .menu-bar-container-col-2-sub-col-2 > div{
+    padding-left: 0.8em;    
+}
+button{
+    cursor: pointer;
+}
+.menu-bar-features-btn, .menu-bar-pricing-btn, .menu-bar-discovery-btn, .menu-bar-resources-btn, .menu-bar-login-btn{
+    border: none;
+    background-color: #fff;
+    font-size: 1.1em;
+}
+.menu-bar-signup-btn{
+    height: 2.3em;
+    border: none;
+    color: #fff;
+    border-radius: 0.3em;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: -0.5em;
+    background-color: blueviolet;
+}
