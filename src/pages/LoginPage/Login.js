@@ -35,7 +35,7 @@ function Login() {
                         <div className='lc-sub-login-email-container'>
                             <div><p>Email Address</p></div>
                             <div>
-                                <input type='text' onChange={(event) => {
+                                <input className='login-input-field' type='text' onChange={(event) => {
                                     setEmail(event.target.value)
                                 }} />
                             </div>
@@ -43,7 +43,7 @@ function Login() {
                         <div className='lc-sub-login-password-container'>
                             <div><p>Password</p></div>
                             <div>
-                                <input type='password' onChange={(event) => {
+                                <input className='login-input-field' type='password' onChange={(event) => {
                                     setPassword(event.target.value)
                                 }} />
                             </div>

@@ -21,7 +21,7 @@
 p{
     font-weight: 300;
 }
-input{
+.login-input-field{
     width: 90%;
     height: 2.0em;
     outline: none;
