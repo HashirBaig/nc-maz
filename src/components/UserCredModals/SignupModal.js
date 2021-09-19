@@ -105,7 +105,7 @@ function SignupModal({ openModal }) {
     }
 
     const sendData = async () => {
-        await axios.post('http://localhost:5001/api/register', {
+        await axios.post('https://nc-maz.herokuapp.com/api/register', {
             username: userName,
             email: email,
             password: password,

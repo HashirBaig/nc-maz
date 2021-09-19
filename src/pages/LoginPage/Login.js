@@ -12,7 +12,7 @@ function Login() {
     const history = useHistory()
 
     const authUserData = async () => {
-        const response = await axios.post('http://localhost:5001/api/login', {
+        const response = await axios.post('https://nc-maz.herokuapp.com/api/login', {
             email: email,
             password: password
         })
