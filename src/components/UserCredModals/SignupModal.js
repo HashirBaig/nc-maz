@@ -1,10 +1,15 @@
 import React, { Fragment, useState } from 'react'
+import { FaCircle, FaCheck } from 'react-icons/fa'
 import '../UserCredModals/UserCredModals.css'
 import axios from 'axios'
 
-function SignupModal({ openModal }) {
+function SignupModal({ setOpenModal }) {
 
     let artistBtn, collectorBtn = false;
+
+    const [artistIcon, setArtistIcon] = useState(<FaCircle className='fas-fa-circle' />)
+    const [collectorIcon, setCollectorIcon] = useState(<FaCircle className='fas-fa-circle' />)
+    const [orgIcon, setOrgIcon] = useState(<FaCircle className='fas-fa-circle' />)
 
     const [userName, setUserName] = useState('')
     const [email, setEmail] = useState('')
@@ -41,43 +46,52 @@ function SignupModal({ openModal }) {
             setBtnBgColor('#27548E');
             setBtnColor('#fff');
             setBtnHoverBgColor('#6DA9F7');
+            setArtistIcon(<FaCheck className='fas-fa-check' />)
 
             // For collector btn
             setBtnCollectorBgColor('#f0f0f0');
             setBtnCollectorColor('gray');
             setBtnCollectorHoverBgColor('');
+            setCollectorIcon(<FaCircle className='fas-fa-circle' />)
             // For Org. btn
             setBtnOrgBgColor('#f0f0f0');
             setBtnOrgColor('gray');
             setBtnOrgHoverBgColor('');
+            setOrgIcon(<FaCircle className='fas-fa-circle' />)
 
         } else if (collectorBtn === true) {
             setBtnCollectorBgColor('#27548E');
             setBtnCollectorColor('#fff');
             setBtnCollectorHoverBgColor('#6DA9F7');
+            setCollectorIcon(<FaCheck className='fas-fa-check' />)
 
             // For artist btn
             setBtnBgColor('#f0f0f0');
             setBtnColor('gray');
             setBtnHoverBgColor('');
+            setArtistIcon(<FaCircle className='fas-fa-circle' />)
             // For Org. btn
             setBtnOrgBgColor('#f0f0f0');
             setBtnOrgColor('gray');
             setBtnOrgHoverBgColor('');
+            setOrgIcon(<FaCircle className='fas-fa-circle' />)
 
         } else {
             setBtnOrgBgColor('#27548E');
             setBtnOrgColor('#fff');
             setBtnOrgHoverBgColor('#6DA9F7');
+            setOrgIcon(<FaCheck className='fas-fa-check' />)
 
             // For artist btn
             setBtnBgColor('#f0f0f0');
             setBtnColor('gray');
             setBtnHoverBgColor('');
+            setArtistIcon(<FaCircle className='fas-fa-circle' />)
             // For collector btn
             setBtnCollectorBgColor('#f0f0f0');
             setBtnCollectorColor('gray');
             setBtnCollectorHoverBgColor('');
+            setCollectorIcon(<FaCircle className='fas-fa-circle' />)
         }
     }
 
@@ -103,8 +117,19 @@ function SignupModal({ openModal }) {
     const onMouseOutOrg = (event) => {
         event.target.style.background = btnOrgBgColor
     }
-
     const sendData = async () => {
+
+
+        if (!userName) {
+            alert('Enter Username!')
+        } else if (!email) {
+            alert('Enter Email!')
+        } else if (!password) {
+            alert('Enter Password!')
+        } else if (!entity_type) {
+            alert('Enter Role Not Selected!')
+        }
+
         await axios.post('https://nc-maz.herokuapp.com/api/register', {
             username: userName,
             email: email,
@@ -118,7 +143,7 @@ function SignupModal({ openModal }) {
             <div className='modal-background'></div>
             <div className='sign-up-modal'>
                 <div className='sign-up-modal-row-1'>
-                    <button id='close-sign-up-model-btn' onClick={() => { openModal(false) }}>X</button>
+                    <button id='close-sign-up-model-btn' onClick={() => { setOpenModal(false) }}>X</button>
                 </div>
                 <div className='sign-up-modal-row-2'>
                     <h2>GET STARTED TODAY</h2>
@@ -153,7 +178,7 @@ function SignupModal({ openModal }) {
                         <input
                             className='sign-up-modal-row-3-input'
                             placeholder='Password'
-                            type='text'
+                            type='password'
                             onChange={
                                 (event) => {
                                     setPassword(event.target.value)
@@ -177,10 +202,10 @@ function SignupModal({ openModal }) {
                             }}
                             onClick={() => {
                                 setEntityType('artist')
-                                changeArtistBtnClickedStatus();
-                                changeBtnColor();
+                                changeArtistBtnClickedStatus()
+                                changeBtnColor()
                             }}
-                        > () Artist </button>
+                        > {artistIcon}Artist </button>
                     </div>
                     <div>
                         <button
@@ -195,8 +220,9 @@ function SignupModal({ openModal }) {
                                 setEntityType('collector')
                                 changeCollectorBtnClickedStatus()
                                 changeBtnColor()
+
                             }}
-                        > () Collector</button>
+                        > {collectorIcon} Collector</button>
                     </div>
                     <div>
                         <button
@@ -212,7 +238,7 @@ function SignupModal({ openModal }) {
                                 changeOrgBtnClickedStatus();
                                 changeBtnColor();
                             }}
-                        > () Organization</button>
+                        > {orgIcon} Organization</button>
                     </div>
                 </div>
                 <div className='sign-up-modal-row-5'>
@@ -223,7 +249,7 @@ function SignupModal({ openModal }) {
                     <button
                         onClick={() => {
                             sendData();
-                            openModal(false);
+                            setOpenModal(false);
                         }}
                     >SIGN UP</button>
                 </div>

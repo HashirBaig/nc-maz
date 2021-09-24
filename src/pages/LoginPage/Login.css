@@ -1,25 +1,61 @@
+:root{
+    --greenColor: rgb(26, 99, 50);
+}
 .login-container-row-2{
     margin-left: 29.3%;
     padding-top: 7.0em;
-    font-family: Microsoft PhagPa;
 }
-.login-container-row-2 > div > p{
+.login-container-text{
     font-size: 1.0em;
+    font-family: arial;
     font-weight: bold;
-    font-family: Microsoft PhagPa;
+}
+.lc-sub-container-row-1{
+    display: flex;
 }
 .lc-sub-login-container{
     width: 33.0em;
     height: 20.0em;
-    border: 1px solid lightslategray;
-    background-color: lightgrey;
+    margin-top: 0.5em;
+    border-radius: 0.5em;
+    border: 0.15em solid var(--greenColor);
+    background-color: #f0f0f0;
 }
 .lc-sub-login-container > div{
-    padding: 1.5em;
+    padding: 2.0em;
     line-height: 1.0em;
 }
-p{
-    font-weight: 300;
+.lc-sub-container-row-1{
+    height: 100%;
+    width: 100%;
+}
+.lc-sub-container-row-1 > div > span{
+    font-weight: bold;
+    font-family: arial black;
+    font-size: 1.5em;
+}
+.lc-sub-container-row-1{
+    width: 100%;
+    height: 100%;
+}
+.login-btn-cancel{
+    margin-left: 26.90em;
+    margin-top: 0.4em;
+}
+.login-btn-cancel > button{
+    height: 1.4em;
+    width: 1.9em;
+    font-weight: bold;
+    border: 0.15em solid rgb(211, 57, 57);
+    border-radius: 0.3em;
+    font-size: 1.0em;
+    color: rgb(211, 57, 57);
+    background-color: #fff;
+    transition: 0.3s all ease;
+}
+.login-btn-cancel > button:hover{
+    color: #fff;
+    background-color: rgb(211, 57, 57); 
 }
 .login-input-field{
     width: 90%;
@@ -27,18 +63,30 @@ p{
     outline: none;
     padding-left: 1.5em;
     font-size: 1.0em;
-    border: 1px solid #fff;
+    border-radius: 0.5em;
+    border: 0.15em solid var(--greenColor);
     font-family: Microsoft PhagsPa;
+}
+.login-btn-container{
+    text-align: right;
+    margin-right: 1.0em;
 }
 #login-btn{
     width: 8.0em;
-    height: 3.0em;
-    border: none;
-    color: #fff;
-    margin-top: 1.0em;
+    height: 2.5em;
+    border-radius: 0.4em;
+    border: 0.15em solid var(--greenColor);
+    color: var(--greenColor);
+    margin-top: 1.2em;
+    font-size: 1.0em;
     font-weight: bold;
     font-family: Microsoft PhagsPa;
-    background-color: rgb(26, 99, 50);
+    background-color: #f0f0f0;
+}
+#login-btn:hover{
+    background-color: var(--greenColor);
+    color: #f0f0f0;
+    transition: 0.4s all ease;
 }
 #login-redirect-btn{
     border: none;
@@ -46,5 +94,12 @@ p{
     font-size: 0.95em;
     font-weight: bold;
     font-family: Microsoft PhagsPa;
-    background-color: lightgray;
+    background-color: #f0f0f0;
+}
+.lc-sub-login-email-container{
+    line-height: 0.4em;
+}
+.lc-sub-login-password-container{
+    padding-top: 1.0em;
+    line-height: 0.4em;
 }

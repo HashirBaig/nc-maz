@@ -1,11 +1,15 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { FaAngleDown } from 'react-icons/fa'
 import '../MenuBarComponent/MenuBar.css'
 import logo from '../../images/logo.png'
 
 
-function MenuBar({ openModal }) {
+function MenuBar({ setOpenModal }) {
     const history = useHistory();
+    const openSignInModal = async () => {
+        setOpenModal(true)
+    }
     return (
         <div className="menu-bar-container">
             <div className="menu-bar-container-col-1">
@@ -17,8 +21,8 @@ function MenuBar({ openModal }) {
                     <div>
                         <button className='menu-bar-features-btn'>Features</button>
                     </div>
-                    <div>
-                        <span>↓</span>
+                    <div className='fas-fa-downward-arrow'>
+                        <FaAngleDown />
                     </div>
                 </div>
 
@@ -29,8 +33,8 @@ function MenuBar({ openModal }) {
                     <div>
                         <button className='menu-bar-resources-btn'>Resources</button>
                     </div>
-                    <div>
-                        <span>↓</span>
+                    <div className='fas-fa-downward-arrow'>
+                        <FaAngleDown />
                     </div>
                 </div>
 
@@ -47,7 +51,7 @@ function MenuBar({ openModal }) {
                 <div>
                     <button className='menu-bar-signup-btn'
                         onClick={() => {
-                            openModal(true);
+                            openSignInModal()
                         }}
                     >Sign Up
                     </button>

@@ -101,3 +101,10 @@
     background-color: #27548E;
     font-family: Microsoft PhagsPa;
 }
+.fas-fa-circle{
+   transform: scale(0.8);
+   padding-right: 0.9em;
+}
+.fas-fa-check{
+    padding-right: 0.9em;
+ }
