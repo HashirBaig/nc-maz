@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import '../LoginPage/Login.css'
+import * as actionTypes from '../../redux/actionTypes/actionTypes'
 
 import MenuBar from '../../components/MenuBarComponent/MenuBar'
+
+//import actions: user_login_status - state
+import { isUserLoggedIn } from '../../redux/features/user_login_status'
 
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const authUserData = async () => {
         const response = await axios.post('https://nc-maz.herokuapp.com/api/login', {
@@ -25,6 +31,7 @@ function Login() {
         }
 
         if (result.status === 'ok') {
+            dispatch(isUserLoggedIn(true, actionTypes.IS_LOGGED_IN)) //Now user can go to dashboard page
             history.push('/user/dashboard')
         }
     }

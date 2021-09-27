@@ -1,16 +1,16 @@
-import React, { Fragment, useState } from 'react'
-import '../HomePage/HomePage.css'
+import React, { Fragment } from 'react'
+import { useSelector } from 'react-redux'
 import MenuBar from '../../components/MenuBarComponent/MenuBar';
 import Footer from '../../components/FooterComponent/Footer';
 import SignupModal from '../../components/UserCredModals/SignupModal';
 
 function HomePage() {
-    const [openModal, setOpenModal] = useState(false);
+    const openModal = useSelector((state) => state.viewSignUpModal.value)
     return (
         <Fragment>
-            <MenuBar setOpenModal={(setOpenModal)} />
-            {openModal && <SignupModal setOpenModal={(setOpenModal)} />}
-            <Footer className='home-row-3' />
+            <MenuBar />
+            {openModal && <SignupModal />}
+            <Footer />
         </Fragment>
     )
 }

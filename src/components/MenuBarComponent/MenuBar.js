@@ -1,14 +1,20 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+
 import { FaAngleDown } from 'react-icons/fa'
+
 import '../MenuBarComponent/MenuBar.css'
 import logo from '../../images/logo.png'
 
+import { openSignUpModal } from '../../redux/features/view_sign_up'
 
-function MenuBar({ setOpenModal }) {
-    const history = useHistory();
-    const openSignInModal = async () => {
-        setOpenModal(true)
+function MenuBar() {
+    const history = useHistory()
+    const dispatch = useDispatch()
+
+    const openMainSignUpModal = async () => {
+        dispatch(openSignUpModal(true))
     }
     return (
         <div className="menu-bar-container">
@@ -51,7 +57,7 @@ function MenuBar({ setOpenModal }) {
                 <div>
                     <button className='menu-bar-signup-btn'
                         onClick={() => {
-                            openSignInModal()
+                            openMainSignUpModal()
                         }}
                     >Sign Up
                     </button>

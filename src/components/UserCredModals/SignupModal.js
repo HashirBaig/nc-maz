@@ -1,9 +1,13 @@
 import React, { Fragment, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { FaCircle, FaCheck } from 'react-icons/fa'
 import '../UserCredModals/UserCredModals.css'
 import axios from 'axios'
 
-function SignupModal({ setOpenModal }) {
+import { closeSignUpModal } from '../../redux/features/view_sign_up'
+
+
+function SignupModal() {
 
     let artistBtn, collectorBtn = false;
 
@@ -28,20 +32,26 @@ function SignupModal({ setOpenModal }) {
     const [btnOrgColor, setBtnOrgColor] = useState('gray');
     const [btnOrgHoverBgColor, setBtnOrgHoverBgColor] = useState('');
 
-    const changeArtistBtnClickedStatus = () => {
+    const dispatch = useDispatch()
+
+    const closeMainSignUpModal = async () => {
+        dispatch(closeSignUpModal())
+    }
+
+    const changeArtistBtnClickedStatus = async () => {
         artistBtn = true;
         collectorBtn = false;
     }
-    const changeCollectorBtnClickedStatus = () => {
+    const changeCollectorBtnClickedStatus = async () => {
         collectorBtn = true;
         artistBtn = false;
     }
-    const changeOrgBtnClickedStatus = () => {
+    const changeOrgBtnClickedStatus = async () => {
         collectorBtn = false;
         artistBtn = false;
     }
 
-    const changeBtnColor = () => {
+    const changeBtnColor = async () => {
         if (artistBtn === true) {
             setBtnBgColor('#27548E');
             setBtnColor('#fff');
@@ -117,9 +127,8 @@ function SignupModal({ setOpenModal }) {
     const onMouseOutOrg = (event) => {
         event.target.style.background = btnOrgBgColor
     }
+
     const sendData = async () => {
-
-
         if (!userName) {
             alert('Enter Username!')
         } else if (!email) {
@@ -138,12 +147,14 @@ function SignupModal({ setOpenModal }) {
         })
     }
 
+
+
     return (
         <Fragment>
             <div className='modal-background'></div>
             <div className='sign-up-modal'>
                 <div className='sign-up-modal-row-1'>
-                    <button id='close-sign-up-model-btn' onClick={() => { setOpenModal(false) }}>X</button>
+                    <button id='close-sign-up-model-btn' onClick={() => { closeMainSignUpModal() }}>X</button>
                 </div>
                 <div className='sign-up-modal-row-2'>
                     <h2>GET STARTED TODAY</h2>
@@ -249,7 +260,7 @@ function SignupModal({ setOpenModal }) {
                     <button
                         onClick={() => {
                             sendData();
-                            setOpenModal(false);
+                            closeMainSignUpModal()
                         }}
                     >SIGN UP</button>
                 </div>
