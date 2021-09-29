@@ -1,0 +1,29 @@
+.slogan, .slogan-sub-heading{
+    position: absolute;
+}
+.slogan{
+    margin-left: 25.00%;
+    margin-top: 2.0em;
+}
+.slogan > h1{
+    font-family: Bahnschrift Condensed;
+    font-weight: bold;
+    font-size: 3.6em;
+    padding-top: 1.0em;
+    color: rgb(25, 25, 25);
+}
+
+.slogan-sub-heading{
+    width: 35.0em;
+    height: fit-content;
+    text-align: left;
+    justify-content: center;
+    margin-top: 12.0em;
+    margin-left: 29.00%;
+}
+.slogan-sub-heading > h3{
+    color: rgb(43, 43, 43);
+    font-size: 1.3em;
+    font-family: Calibri;
+    font-weight: bold;
+}

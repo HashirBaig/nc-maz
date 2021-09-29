@@ -1,5 +1,6 @@
 :root{
-    --greenColor: rgb(26, 99, 50);
+    --greenColor: rgb(42, 126, 70);
+    --lightGreenColor: rgb(241, 255, 245);
 }
 .login-container-row-2{
     margin-left: 29.3%;
@@ -19,7 +20,7 @@
     margin-top: 0.5em;
     border-radius: 0.5em;
     border: 0.15em solid var(--greenColor);
-    background-color: #f0f0f0;
+    background-color: var(--lightGreenColor);
 }
 .lc-sub-login-container > div{
     padding: 2.0em;

@@ -1,8 +1,12 @@
 import React, { Fragment } from 'react'
 import { useSelector } from 'react-redux'
-import MenuBar from '../../components/MenuBarComponent/MenuBar';
-import Footer from '../../components/FooterComponent/Footer';
-import SignupModal from '../../components/UserCredModals/SignupModal';
+
+//Importing components
+import MenuBar from '../../components/MenuBarComponent/MenuBar'
+import SignupModal from '../../components/UserCredModals/SignupModal'
+import Section from '../../components/SectionComponent/Section'
+import Footer from '../../components/FooterComponent/Footer'
+
 
 function HomePage() {
     const openModal = useSelector((state) => state.viewSignUpModal.value)
@@ -10,6 +14,7 @@ function HomePage() {
         <Fragment>
             <MenuBar />
             {openModal && <SignupModal />}
+            <Section />
             <Footer />
         </Fragment>
     )
