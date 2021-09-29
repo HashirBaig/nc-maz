@@ -7,20 +7,33 @@ import HomePage from './pages/HomePage/HomePage'
 import LoginPage from './pages/LoginPage/Login'
 import SignupModal from './components/UserCredModals/SignupModal'
 import UserDashboard from './pages/UserDashboardPage/UserDashboard'
+import MenuBar from './components/MenuBarComponent/MenuBar'
+
+//Importing Routes
 import ProtectedRoute from './routes/ProtectedRoutes/ProtectedRoute'
+import { publicRoutes, protectedRoutes } from './routes/ConfigRoutes/configRoutes'
 
 function App() {
   return (
     <Fragment>
       <Router>
         <Switch>
-          <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/user/login" component={LoginPage}></Route>
-          <Route exact path="/user/sign-up" component={SignupModal}></Route>
-          <ProtectedRoute exact path='/user/dashboard' component={UserDashboard} />
+          <Route exact path={publicRoutes.landingPage} component={HomePage}></Route>
+          <Route
+            exact path={publicRoutes.userLoginPage}
+            render={props =>
+              <>
+                <MenuBar />
+                <LoginPage />
+              </>
+            }
+          >
+          </Route>
+          <Route exact path={publicRoutes.userSignUpPage} component={SignupModal}></Route>
+          <ProtectedRoute exact path={protectedRoutes.userDashboardPage} component={UserDashboard} />
         </Switch>
       </Router>
-    </Fragment>
+    </Fragment >
   )
 }
 

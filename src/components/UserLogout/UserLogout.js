@@ -1,8 +1,14 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
+//Importing CSS file
 import '../UserLogout/UserLogout.css'
+
+//Importing actions from state
 import { isUserLoggedOut } from '../../redux/features/user_login_status'
+
+//Importing Icons
+import { FiLogOut } from 'react-icons/fi'
 
 
 function UserLogout() {
@@ -17,7 +23,7 @@ function UserLogout() {
                 onClick={() => {
                     userLogout()
                 }}
-            >Logout</button>
+            ><FiLogOut className='user-logout-icon' /></button>
         </div>
     )
 }

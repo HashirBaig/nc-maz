@@ -12,7 +12,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
                 if (isAuth) {
                     return <Component />
                 } else {
-                    return <Redirect to={{ pathName: protectedRoutes.userDashboard, state: props.location }} />
+                    return <Redirect to={{ pathName: protectedRoutes.userDashboardPage, state: props.location }} />
                 }
             }}
         />

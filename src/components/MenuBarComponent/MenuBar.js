@@ -19,7 +19,7 @@ function MenuBar() {
     return (
         <div className="menu-bar-container">
             <div className="menu-bar-container-col-1">
-                <img src={logo} className='menu-bar-logo'></img>
+                <img src={logo} className='menu-bar-logo' alt=''></img>
             </div>
 
             <div className="menu-bar-container-col-2">

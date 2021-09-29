@@ -4,12 +4,13 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import '../LoginPage/Login.css'
-import * as actionTypes from '../../redux/actionTypes/actionTypes'
-
-import MenuBar from '../../components/MenuBarComponent/MenuBar'
+// import * as actionTypes from '../../redux/actionTypes/actionTypes'
 
 //import actions: user_login_status - state
 import { isUserLoggedIn } from '../../redux/features/user_login_status'
+
+//Importing routes
+import { protectedRoutes } from '../../routes/ConfigRoutes/configRoutes'
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -31,18 +32,13 @@ function Login() {
         }
 
         if (result.status === 'ok') {
-            dispatch(isUserLoggedIn(true, actionTypes.IS_LOGGED_IN)) //Now user can go to dashboard page
-            history.push('/user/dashboard')
+            dispatch(isUserLoggedIn(true)) //Now user can go to dashboard page
+            history.push(protectedRoutes.userDashboardPage)
         }
     }
 
     return (
         <div className='login-container'>
-
-            <div className='login-container-row-1'>
-                <MenuBar />
-            </div>
-
             <div className='login-container-row-2'>
                 <div className='lc-sub-container-row-1'>
                     <div>
