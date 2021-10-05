@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 import './Section.css'
 
 //Importing components
@@ -6,7 +7,7 @@ import GettingStarted from './GettingStartedComponent/GettingStarted'
 
 function Section() {
     return (
-        <Fragment>
+        <div className='section-container'>
             <div className='slogan'>
                 <h1>ART INVENTROY, SIMPLIFIED</h1>
             </div>
@@ -17,8 +18,8 @@ function Section() {
                 </h3>
             </div>
             <GettingStarted />
-        </Fragment>
+        </div>
     )
 }
 
-export default Section
+export default withRouter(Section)

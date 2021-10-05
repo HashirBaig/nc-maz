@@ -1,5 +1,6 @@
 .slogan, .slogan-sub-heading{
     position: absolute;
+    z-index: 10;
 }
 .slogan{
     margin-left: 25.00%;

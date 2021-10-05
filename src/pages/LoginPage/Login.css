@@ -82,7 +82,7 @@
     font-size: 1.0em;
     font-weight: bold;
     font-family: Microsoft PhagsPa;
-    background-color: #f0f0f0;
+    background-color: var(--lightGreenColor);
 }
 #login-btn:hover{
     background-color: var(--greenColor);
@@ -95,7 +95,7 @@
     font-size: 0.95em;
     font-weight: bold;
     font-family: Microsoft PhagsPa;
-    background-color: #f0f0f0;
+    background-color: var(--lightGreenColor);
 }
 .lc-sub-login-email-container{
     line-height: 0.4em;

@@ -8,7 +8,6 @@ import '../LoginPage/Login.css'
 
 //import actions: user_login_status - state
 import { isUserLoggedIn } from '../../redux/features/user_login_status'
-
 //Importing routes
 import { protectedRoutes } from '../../routes/ConfigRoutes/configRoutes'
 

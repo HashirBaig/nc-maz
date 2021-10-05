@@ -6,7 +6,7 @@
     left: 0;
     background-color: gray;
     opacity: 0.5;
-    z-index: 20;
+    z-index: 30;
 }
 .sign-up-modal{
     position: relative;
@@ -14,7 +14,7 @@
     height: 35.5em;
     margin-left: 25%;
     background-color: #428AE7;
-    z-index: 30;
+    z-index: 40;
 }
 .sign-up-modal-row-4, .sign-up-modal-row-5{
     display: flex;

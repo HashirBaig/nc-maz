@@ -1,15 +1,28 @@
 import React, { Fragment, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+
+//Importing Icons
 import { FaCircle, FaCheck } from 'react-icons/fa'
+
+//Importing CSS file
 import '../UserCredModals/UserCredModals.css'
+
+//Importing axios
 import axios from 'axios'
 
+//Importing Redux-Actions
 import { closeSignUpModal } from '../../redux/features/view_sign_up'
+import { resetGettingStarted } from '../../redux/features/getting_started_free_trial'
 
 
 function SignupModal() {
 
     let artistBtn, collectorBtn = false;
+
+    //Access state
+    const isClicked = useSelector(state => state.viewSignUpModal.value)
+    const getStartedEmail = useSelector(state => state.getStarted.value)
 
     const [artistIcon, setArtistIcon] = useState(<FaCircle className='fas-fa-circle' />)
     const [collectorIcon, setCollectorIcon] = useState(<FaCircle className='fas-fa-circle' />)
@@ -33,6 +46,7 @@ function SignupModal() {
     const [btnOrgHoverBgColor, setBtnOrgHoverBgColor] = useState('');
 
     const dispatch = useDispatch()
+    const getStartedState = useSelector(state => state.getStarted.value)
 
     const closeMainSignUpModal = async () => {
         dispatch(closeSignUpModal())
@@ -131,8 +145,8 @@ function SignupModal() {
     const sendData = async () => {
         if (!userName) {
             alert('Enter Username!')
-        } else if (!email) {
-            alert('Enter Email!')
+        } else if (!email && getStartedEmail === null) {
+            alert('Enter Email!: ', 'email->', email, ' getStartedEmail->', getStartedEmail)
         } else if (!password) {
             alert('Enter Password!')
         } else if (!entity_type) {
@@ -141,10 +155,17 @@ function SignupModal() {
 
         await axios.post('https://nc-maz.herokuapp.com/api/register', {
             username: userName,
-            email: email,
+            email: (getStartedEmail !== null) ? getStartedEmail : email,
             password: password,
             entity_type: entity_type
         })
+
+        //Reseting Fields
+        dispatch(resetGettingStarted())
+        setUserName('')
+        setEmail('')
+        setPassword('')
+        setEntityType('')
     }
 
 
@@ -154,7 +175,21 @@ function SignupModal() {
             <div className='modal-background'></div>
             <div className='sign-up-modal'>
                 <div className='sign-up-modal-row-1'>
-                    <button id='close-sign-up-model-btn' onClick={() => { closeMainSignUpModal() }}>X</button>
+
+                    {
+                        (isClicked) ?
+                            <button
+                                id='close-sign-up-model-btn'
+                                onClick={() => { closeMainSignUpModal() }}
+                            >
+                                X
+                            </button>
+                            :
+                            null
+                    }
+
+
+
                 </div>
                 <div className='sign-up-modal-row-2'>
                     <h2>GET STARTED TODAY</h2>
@@ -178,6 +213,7 @@ function SignupModal() {
                             className='sign-up-modal-row-3-input'
                             placeholder='Email'
                             type='text'
+                            value={(getStartedState) ? getStartedState : email}
                             onChange={
                                 (event) => {
                                     setEmail(event.target.value)
@@ -269,4 +305,4 @@ function SignupModal() {
     )
 }
 
-export default SignupModal
+export default withRouter(SignupModal)
