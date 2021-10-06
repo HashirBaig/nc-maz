@@ -3,7 +3,7 @@
     width: 100%;
     height: 5.0em;
     display: flex;
-    z-index: 100;
+    z-index: 30;
 }
 .menu-bar-logo{
     display: block;
