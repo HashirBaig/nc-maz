@@ -1,7 +1,7 @@
 import React from 'react'
 import './Footer.css'
 
-import { FaFacebookSquare, FaTwitterSquare, FaInstagram } from 'react-icons/fa'
+import { FaFacebookSquare, FaTwitterSquare, FaInstagram, FaRegCopyright } from 'react-icons/fa'
 
 function Footer() {
     return (
@@ -23,14 +23,27 @@ function Footer() {
             </div>
             <div className="footer-row-3">
                 <div>
-                    <FaFacebookSquare className="social-media-icons" />
+                    <a href="https://www.facebook.com">
+                        <FaFacebookSquare className="social-media-icons" />
+                    </a>
                 </div>
                 <div>
-                    <FaTwitterSquare className="social-media-icons" />
+                    <a href="https://www.twitter.com">
+                        <FaTwitterSquare className="social-media-icons" />
+                    </a>
                 </div>
                 <div>
-                    <FaInstagram className="social-media-icons" />
+                    <a href="https://www.instagram.com">
+                        <FaInstagram className="social-media-icons" />
+                    </a>
                 </div>
+            </div>
+            <div className="footer-row-4">
+                <FaRegCopyright className='copyright-icon' />
+                <span>2021 ARTWORK ARCHIVE</span>
+            </div>
+            <div className="footer-row-5">
+                <span>Made in Denver, CO</span>
             </div>
         </div>
     )

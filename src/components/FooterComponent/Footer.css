@@ -1,7 +1,7 @@
 .footer-container{
     position: absolute;
     width: 98.5%;
-    height: 33.0%;
+    height: 48.0%;
     margin-top: 30.0em;
     background-color: #353535;
 }
@@ -44,4 +44,21 @@ a{
     color: #f0f0f0;
     width: 2.5em;
     height: 2.5em;
+}
+
+.footer-row-4{
+    justify-content: center;
+    text-align: center;
+    color: #f0f0f0;
+    padding-top: 2.0em;
+}
+.copyright-icon, .footer-row-4>span{
+    padding: 0.2em;
+}
+
+.footer-row-5{
+    justify-content: center;
+    text-align: center;
+    color: #f0f0f0;
+    padding-top: 1.0em;
 }

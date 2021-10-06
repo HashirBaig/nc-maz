@@ -25,7 +25,9 @@ function MenuBar() {
             <div className="menu-bar-container-col-2">
                 <div className="menu-bar-container-col-2-sub-col-1">
                     <div>
-                        <button className='menu-bar-features-btn'>Features</button>
+                        <button className='menu-bar-features-btn'>
+                            Features
+                        </button>
                     </div>
                     <div className='fas-fa-downward-arrow'>
                         <FaAngleDown />
