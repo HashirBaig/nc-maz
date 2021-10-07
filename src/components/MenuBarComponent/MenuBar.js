@@ -29,8 +29,8 @@ function MenuBar() {
                             Features
                         </button>
                     </div>
-                    <div className='fas-fa-downward-arrow'>
-                        <FaAngleDown />
+                    <div >
+                        <FaAngleDown className='fas-fa-downward-arrow' />
                     </div>
                 </div>
 
