@@ -4,12 +4,12 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import '../LoginPage/Login.css'
-// import * as actionTypes from '../../redux/actionTypes/actionTypes'
 
 //import actions: user_login_status - state
 import { isUserLoggedIn } from '../../redux/features/user_login_status'
+
 //Importing routes
-import { protectedRoutes } from '../../routes/ConfigRoutes/configRoutes'
+import { protectedRoutes, publicRoutes } from '../../routes/ConfigRoutes/configRoutes'
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -33,6 +33,8 @@ function Login() {
         if (result.status === 'ok') {
             dispatch(isUserLoggedIn(true)) //Now user can go to dashboard page
             history.push(protectedRoutes.userDashboardPage)
+        } else {
+            alert('Email or Password Invalid!')
         }
     }
 
@@ -46,7 +48,7 @@ function Login() {
                     <div className='login-btn-cancel'>
                         <button
                             onClick={() => {
-                                history.push('/')
+                                history.push(publicRoutes.landingPage)
                             }}
                         >X</button>
                     </div>
@@ -80,7 +82,7 @@ function Login() {
                         <div>
                             <p>Don't have an account? <button id='login-redirect-btn'
                                 onClick={() => {
-                                    history.push('/user/sign-up')
+                                    history.push(publicRoutes.userSignUpPage)
                                 }}
                             >Sign Up</button></p>
                         </div>

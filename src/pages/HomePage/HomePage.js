@@ -13,9 +13,10 @@ function HomePage() {
     return (
         <Fragment>
             <MenuBar />
-            {openModal && <SignupModal />}
-            <Section />
-            <Footer />
+            {
+                (openModal) ? <SignupModal /> : <><Section /> <Footer /></>
+            }
+
         </Fragment>
     )
 }

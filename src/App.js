@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import './App.css'
 
 //Importing Components
@@ -14,6 +15,7 @@ import ProtectedRoute from './routes/ProtectedRoutes/ProtectedRoute'
 import { publicRoutes, protectedRoutes } from './routes/ConfigRoutes/configRoutes'
 
 function App() {
+  const openModal = useSelector((state) => state.viewSignUpModal.value)
   return (
     <Fragment>
       <Router>
@@ -24,7 +26,9 @@ function App() {
             render={props =>
               <>
                 <MenuBar />
-                <LoginPage />
+                {
+                  (openModal) ? <SignupModal /> : <LoginPage />
+                }
               </>
             }
           >
