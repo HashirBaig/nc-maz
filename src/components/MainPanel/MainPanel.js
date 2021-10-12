@@ -3,7 +3,7 @@ import React from 'react'
 function MainPanel() {
     return (
         <div>
-            main panel
+            Welcom to the main panel!
         </div>
     )
 }
